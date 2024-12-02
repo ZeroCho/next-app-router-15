@@ -14,7 +14,7 @@ export default function Main() {
         <h2>지금 가입하세요.</h2>
         <Link href="/i/flow/signup" className={styles.signup}>계정 만들기</Link>
         <h3>이미 트위터에 가입하셨나요?</h3>
-        <Link href="/login" className={styles.login}>로그인</Link>
+        <Link href="/i/flow/login" className={styles.login}>로그인</Link>
       </div>
     </>
   )
