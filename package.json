@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.2.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.13",
     "next": "15.0.3",
