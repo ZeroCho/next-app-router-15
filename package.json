@@ -22,6 +22,12 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "^15.0.3",
+    "msw": "^2.6.6",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
