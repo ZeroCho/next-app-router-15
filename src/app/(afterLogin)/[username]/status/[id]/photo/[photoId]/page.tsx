@@ -1,10 +1,12 @@
 import Home from "@/app/(afterLogin)/home/page";
 
 type Props = {
-  params: Promise<{ username: string, id: string, photoId: string }>
+  params: { username: string, id: string, photoId: string }
 }
-export default async function Page({ params }: Props) {
-  const { username, id, photoId } = await params;
+export default function Page({ params }: Props) {
+  params.username // elonmusk
+  params.id // 1
+  params.photoId // 1
   return (
     <Home />
   )
