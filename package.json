@@ -16,7 +16,8 @@
     "next": "15.0.4",
     "next-auth": "^5.0.0-beta.25",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "react-intersection-observer": "^9.13.1"
   },
   "devDependencies": {
     "@tanstack/react-query-devtools": "^5.62.3",
