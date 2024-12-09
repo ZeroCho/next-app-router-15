@@ -49,9 +49,9 @@ export default function Post({ noImage, post }: Props) {
             <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span>
           </div>
           <div>{target.content}</div>
-          <div>
+          {!noImage && <div>
             <PostImages post={target} />
-          </div>
+          </div>}
           <ActionButtons/>
         </div>
       </div>
