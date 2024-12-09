@@ -1,8 +1,8 @@
 import style from "@/app/(afterLogin)/_component/rightSearchZone.module.css";
 import Form from "next/form";
 
-type Props = { q?: string }
-export default function SearchForm({ q }: Props) {
+type Props = { q?: string; pf?: string; f?: string; }
+export default function SearchForm({ q, pf, f }: Props) {
   return (
     <Form action="/search" className={style.search}>
       <svg width={20} viewBox="0 0 24 24" aria-hidden="true">
@@ -12,6 +12,8 @@ export default function SearchForm({ q }: Props) {
         </g>
       </svg>
       <input type="search" name="q" defaultValue={q} />
+      <input type="hidden" name="pf" defaultValue={pf} />
+      <input type="hidden" name="f" defaultValue={f} />
     </Form>
   )
 }
