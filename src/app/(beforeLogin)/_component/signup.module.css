@@ -142,3 +142,8 @@
         fill: white;
     }
 }
+
+.error {
+    font-weight: bold;
+    color: red;
+}
