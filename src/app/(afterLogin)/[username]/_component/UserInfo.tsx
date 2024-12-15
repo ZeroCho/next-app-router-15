@@ -7,19 +7,19 @@ import {User} from "@/model/User";
 import {getUser} from "@/app/(afterLogin)/[username]/_lib/getUser";
 import {MouseEventHandler} from "react";
 import cx from "classnames";
-import {useSession} from "next-auth/react";
+import {Session} from "next-auth";
 
 type Props = {
   username: string;
+  session: Session | null;
 }
-export default function UserInfo({username}: Props) {
+export default function UserInfo({username, session}: Props) {
   const {data: user, error} = useQuery<User, Object, User, [_1: string, _2: string]>({
     queryKey: ['users', username],
     queryFn: getUser,
     staleTime: 60 * 1000, // fresh -> stale, 5분이라는 기준
     gcTime: 300 * 1000,
   });
-  const { data: session } = useSession();
   const queryClient = useQueryClient();
   const follow = useMutation({
     mutationFn: (userId: string) => {
