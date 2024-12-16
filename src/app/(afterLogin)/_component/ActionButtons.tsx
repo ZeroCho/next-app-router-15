@@ -6,6 +6,7 @@ import {InfiniteData, useMutation, useQueryClient} from "@tanstack/react-query";
 import {useSession} from "next-auth/react";
 import {Post} from "@/model/Post";
 import {useRouter} from "next/navigation";
+import {useModalStore} from "@/store/modal";
 
 type Props = {
   white?: boolean;
@@ -15,7 +16,7 @@ export default function ActionButtons({ white, post }: Props) {
   const queryClient = useQueryClient();
   const router = useRouter();
   const { data: session} = useSession();
-  const commented = !!post.Comments?.find((v) => v.userId === session?.user?.email);
+  const modalStore = useModalStore();
   const reposted = !!post.Reposts?.find((v) => v.userId === session?.user?.email);
   const liked = !!post.Hearts?.find((v) => v.userId === session?.user?.email);
   const { postId } = post;
@@ -341,6 +342,8 @@ export default function ActionButtons({ white, post }: Props) {
   const onClickComment: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
 
+    modalStore.setMode('comment');
+    modalStore.setData(post);
     router.push('/compose/tweet');
   }
 
@@ -364,7 +367,7 @@ export default function ActionButtons({ white, post }: Props) {
 
   return (
     <div className={style.actionButtons}>
-      <div className={cx(style.commentButton, { [style.commented]: commented }, white && style.white)}>
+      <div className={cx(style.commentButton, white && style.white)}>
         <button onClick={onClickComment}>
           <svg width={24} viewBox="0 0 24 24" aria-hidden="true">
             <g>
